@@ -1,0 +1,271 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.canban {
+  background: url("../img/img8.jpg");
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+
+  &__panel {
+    margin-top: auto;
+    flex: 0 0 60px;
+  }
+
+  &__body {
+    // overflow-y: auto;
+  }
+
+  &__content {
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 15px;
+    padding: 10px;
+  }
+}
+
+.column {
+  background-color: #eee;
+  border-radius: 6px;
+  padding: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 95px);
+
+  &__title {
+    border-bottom: 4px solid #343434;
+    font-size: 20px;
+  }
+
+  &__content {
+      overflow-y: auto;
+
+      // &:empty{
+      //   padding: 20px 0;
+      // }
+  }
+
+  &__new {
+    position: absolute;
+    right: 10px;
+    top: -2px;
+    font-size: 22px;
+    font-weight: 900;
+    cursor: pointer;
+    padding: 5px;
+
+    &:hover {
+      color: #08f;
+    }
+  }
+}
+
+// end .item
+.item {
+  // background-color: tomato;
+  transition: transform 0.06s linear;
+  padding: 3px 0;
+  position: relative;
+
+  &.left {
+    transform: rotateZ(-30deg);
+  }
+
+  &.right {
+    transform: rotateZ(30deg);
+  }
+
+  &--copy {
+    opacity: 0.75;
+    position: fixed;
+    transform: rotateZ(0);
+    transition: transform 1s;
+    // .item__text{
+    //     margin-right: 10px;
+    // }
+  }
+
+  &__date {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 9px;
+    color: black;
+    font-weight: 900;
+  }
+
+  &__content {
+    border-radius: 5px;
+    background-color: #888;
+    padding: 5px;
+    color: #fafafa;
+    display: flex;
+    padding-top: 10px;
+
+    &--empty {
+      border-radius: 2px;
+      padding: 20px;
+      border: 3px dashed orange;
+      // animation: borderDance 1.5s infinite;
+    }
+  }
+
+  &__edit {
+    padding: 0 5px;
+    margin-left: auto;
+    align-self: flex-start;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #aaa;
+
+    &:hover {
+      color: #58f;
+      background-color: #fff;
+    }
+  }
+
+  &--marker {
+  }
+
+  &__input {
+    font-size: 14px;
+    width: 100px;
+    flex-grow: 1;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #eee;
+
+    &--invalid {
+      border-bottom: 2px solid tomato;
+    }
+  }
+
+  &__text {
+    cursor: grab;
+  }
+}
+
+@keyframes borderDance{
+  0%{
+    border-style: dashed;
+  }
+  50%{
+    border-style: solid;
+  }
+  100%{
+    border-style: dashed;
+  }
+}
+// end .item \\
+
+.panel {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+
+  &__delete {
+    background-color: tomato;
+    font-size: 30px;
+    color: #fff;
+    padding: 0 20px;
+    line-height: 75px;
+
+    &.big {
+      flex-grow: 1;
+    }
+  }
+
+  &__save {
+    background: #08f;
+    color: #fff;
+    font-size: 48px;
+    padding: 0 20px;
+    line-height: 75px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+}
+
+.menu {
+  &__toggle {
+    display: none;
+
+    &:checked ~ .menu__body {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__body {
+    background-color: #fff;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  }
+
+  label {
+    display: block;
+  }
+
+  &__open {
+    padding: 10px;
+    font-size: 48px;
+    background-color: #fff;
+    height: 100%;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  &__content {
+  }
+
+  &__item {
+    padding: 20px 30px;
+    color: black;
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      color: white;
+      background-color: #000;
+    }
+  }
+
+  &__close {
+    text-align: right;
+    padding: 5px;
+    font-size: 28px;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    cursor: pointer;
+  }
+}
+
+input{
+  outline: none;
+}

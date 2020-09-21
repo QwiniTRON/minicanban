@@ -1,0 +1,312 @@
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 20px;
+  background: #08f;
+}
+
+.header__logo {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.page {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 300px 1fr;
+      grid-template-columns: 300px 1fr;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+}
+
+.page__content {
+  padding: 20px;
+}
+
+.page .sidebar {
+  position: relative;
+  -webkit-transition: left 0.5s, right 0.5s;
+  transition: left 0.5s, right 0.5s;
+  font-family: 'Courier New', Courier, monospace;
+  z-index: 5;
+}
+
+.page .sidebar__content {
+  background: #80aaff;
+  padding: 20px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+}
+
+.page .sidebar__item {
+  border-left: 6px solid #08f;
+  padding-left: 5px;
+  margin: 10px 0;
+}
+
+.page .sidebar__item::first-letter {
+  font-weight: bold;
+  color: #fff;
+}
+
+.page .sidebar__overlay {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .page .sidebar {
+    position: absolute;
+    left: -350px;
+    top: 0;
+    width: 350px;
+    height: 100%;
+  }
+  .page .sidebar.open .sidebar__overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .page .sidebar__content {
+    -webkit-box-shadow: 0 2px 3px 1px #5f5f5f;
+            box-shadow: 0 2px 3px 1px #5f5f5f;
+  }
+  .page .sidebar__container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 6;
+  }
+  .page .sidebar.open {
+    left: 0;
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .page {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .page__content {
+    padding-left: 45px;
+  }
+}
+
+.sidebar-button {
+  font-size: 30px;
+  color: #fff;
+  background: #08f;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  cursor: pointer;
+  border-radius: 0 15px 15px 0;
+  display: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+@media (max-width: 767px) {
+  .sidebar-button {
+    display: block;
+    right: auto;
+    left: 100%;
+  }
+  .sidebar.open .sidebar-button {
+    right: 0;
+    left: auto;
+    border-radius: 15px 0 0 15px;
+  }
+}
+
+.mainForm button {
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  padding: 10px;
+  background: #66bfff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 1px 0 #005999;
+          box-shadow: 0 2px 1px 0 #005999;
+  -webkit-transition: -webkit-box-shadow .1s;
+  transition: -webkit-box-shadow .1s;
+  transition: box-shadow .1s;
+  transition: box-shadow .1s, -webkit-box-shadow .1s;
+}
+
+.mainForm button:not(:disabled):active {
+  -webkit-box-shadow: 0 0 1px 0 #005999;
+          box-shadow: 0 0 1px 0 #005999;
+}
+
+.input-folder {
+  position: relative;
+  padding: 5px;
+  padding-top: 20px;
+}
+
+.input-folder label {
+  position: absolute;
+  top: 23px;
+  left: 15px;
+  -webkit-transition: top .3s, font-size 0.4s;
+  transition: top .3s, font-size 0.4s;
+  font-size: 16px;
+}
+
+.input-folder textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #08f;
+  padding: 5px;
+  outline: none;
+  resize: vertical;
+  min-height: 24px;
+}
+
+.input-folder textarea:invalid {
+  border-bottom: 3px solid tomato;
+}
+
+.input-folder textarea:valid {
+  border-bottom: 3px solid yellowgreen;
+}
+
+.input-folder textarea::-webkit-input-placeholder {
+  font-size: 0;
+}
+
+.input-folder textarea:-ms-input-placeholder {
+  font-size: 0;
+}
+
+.input-folder textarea::-ms-input-placeholder {
+  font-size: 0;
+}
+
+.input-folder textarea::placeholder {
+  font-size: 0;
+}
+
+.input-folder textarea:focus::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.input-folder textarea:focus:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.input-folder textarea:focus::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.input-folder textarea:focus::placeholder {
+  font-size: 14px;
+}
+
+.input-folder textarea:not(:placeholder-shown) + label, .input-folder textarea:focus + label {
+  top: 0;
+  font-size: 12px;
+}
+
+.question-list {
+  padding: 5px;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
+.question-list__item {
+  border-left: 5px solid #f80;
+  padding-left: 5px;
+  margin: 10px 0;
+}
+
+.btn {
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  padding: 10px;
+  background: #66bfff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 1px 0 #0f578a;
+          box-shadow: 0 2px 1px 0 #0f578a;
+  -webkit-transition: -webkit-box-shadow .1s;
+  transition: -webkit-box-shadow .1s;
+  transition: box-shadow .1s;
+  transition: box-shadow .1s, -webkit-box-shadow .1s;
+  display: block;
+}
+
+.btn:not(:disabled):active {
+  -webkit-box-shadow: 0 0 1px 0 #005999;
+          box-shadow: 0 0 1px 0 #005999;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 15;
+}
+
+.modal__content {
+  padding: 10px;
+  position: fixed;
+  max-width: 70vw;
+  left: 0;
+  right: 0;
+  top: 10vh;
+  background: #fff;
+  margin: 0 auto;
+}
+
+.modal__closeer {
+  color: tomato;
+  font-size: 28px;
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  cursor: pointer;
+}
+/*# sourceMappingURL=app.css.map */

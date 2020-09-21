@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доска задач</title>
+</head>
+
+<body>
+
+    <div class="canban">
+        <div class="canban__body">
+            <div class="canban__content">
+                <div class="canban__list">
+                    <div class="column" data-taks="0">
+                        <div class="column__title">Все задачи</div>
+                        <div class="column__new" data-new="true">+</div>
+                        <div class="column__content"></div>
+                    </div>
+                    <div class="column" data-taks="1">
+                        <div class="column__title">Важные задачи</div>
+                        <div class="column__new" data-new="true">+</div>
+                        <div class="column__content"></div>
+                    </div>
+                    <div class="column" data-taks="2">
+                        <div class="column__title">Выполняется</div>
+                        <div class="column__new" data-new="true">+</div>
+                        <!-- <div class="item" data-item="true">
+                                <div class="item__content">
+                                    Сделать канбан
+                                    <div class="item__edit" data-edit="true">✎</div>
+                                </div>
+                            </div> -->
+                        <div class="column__content"></div>
+                    </div>
+                    <div class="column" data-taks="3">
+                        <div class="column__title">Готова</div>
+                        <div class="column__new" data-new="true">+</div>
+                        <div class="column__content">
+                            <!-- <div class="item item--marker" data-marker="true">
+                                <div class="item__content item__content--empty"></div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel canban__panel">
+            <div class="panel__delete">✘</div>
+            <div class="panel__save" id="saveBtn">⚛</div>
+            <div class="menu">
+                <input type="checkbox" id="menu1" class="menu__toggle">
+                <label class="menu__open" for="menu1">
+                    =
+                </label>
+                <div class="menu__body">
+                    <div class="menu__title">Меню</div>
+                    <div class="menu__content">
+                        <div class="menu__item" id="exportBtn">Эспорт</div>
+                        <div class="menu__item" id="importBtn">Импорт</div>
+                    </div>
+                    <label for="menu1" class="menu__close">✘</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
